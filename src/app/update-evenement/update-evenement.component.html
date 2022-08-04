@@ -1,0 +1,77 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-8">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title">Update Evenement</h4>
+                  </div>
+<div style="width: 750px;">
+  <div class="card-body">
+  <form #f="ngForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-12">
+        <mat-form-field class="example-full-width">
+      <input type="text" matInput placeholder="Titre" id="titre" required [(ngModel)]="evenement.titre" name="titre" required ngModel #c="ngModel">
+    </mat-form-field>
+    </div>
+    <div class="alert alert-danger" *ngIf="c.invalid && c.touched">
+      Titre obligatoire 
+    </div>
+  
+    <div class="col-md-12">
+      <mat-form-field class="example-full-width">
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker" class="form-control" id="datedebut" required [(ngModel)]="evenement.datedebut" name="datedebut"  required ngModel #d="ngModel">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div class="alert alert-danger" *ngIf="d.invalid && d.touched">
+    Date debut obligatoire 
+  </div>
+
+
+   
+      <!-- <input type="text" class="form-control" id="datedebut" required [(ngModel)]="evenement.datedebut" name="datedebut"  required ngModel #d="ngModel">
+    </div>
+    <div class="alert alert-danger" *ngIf="d.invalid && d.touched">
+      Date debut obligatoire 
+    </div> -->
+
+    <div class="col-md-12">
+      <mat-form-field class="example-full-width">
+        <input matInput [matDatepicker]="picker" class="form-control" id="datefin" required [(ngModel)]="evenement.datefin" name="datefin"  required ngModel #e="ngModel">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="alert alert-danger" *ngIf="e.invalid && e.touched">
+      Date fin obligatoire 
+    </div>
+
+    <div class="col-md-12">
+      <mat-form-field class="example-full-width">
+        <input type="text" matInput placeholder="Description" id="description" required [(ngModel)]="evenement.description" name="description"  required ngModel #g="ngModel">
+      </mat-form-field>
+      </div>
+      <div class="alert alert-danger" *ngIf="g.invalid && g.touched">
+        Description obligatoire 
+      </div>
+
+      <div class="col-md-12">
+        <mat-form-field class="example-full-width">
+        <input type="text"matInput placeholder="Lieu" id="lieu" required [(ngModel)]="evenement.lieu" name="lieu"  required ngModel #h="ngModel">
+      </mat-form-field>
+      </div>
+      <div class="alert alert-danger" *ngIf="h.invalid && h.touched">
+        Lieu obligatoire 
+      </div> 
+    <button type="submit" (click)="updateEvenement()" class="btn btn-success" [disabled]="f.invalid">Update</button>
+    <button type="button" (click)="retour()" class="btn button" >Retour</button>
+  </div>
+  </form>
+</div>
+

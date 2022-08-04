@@ -1,0 +1,77 @@
+<div id="htmlData">
+<div class="row">
+    
+        <div class="card">
+
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">List evenements</h4>
+                        <p class="card-category">  </p>
+                    </div>
+                    <a [routerLink]="'/add'" mat-button class="nav-link active" href="#profile" class="btn btn-success pull-right" >
+                        Add Evenement
+                        <div class="ripple-container"></div>
+                    </a>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                        
+                        
+                        <form>
+                            <div class="form-group mt-5">
+                          
+                              <input name="priceMax" type="text" class="form-control" style="width: 300px" [(ngModel)]="searchTerm" (keyup)="applyFilter($event.target.value)" placeholder="Search "/>
+                            </div>
+                          </form>
+                          
+                         
+                          <table class="table">
+                              <thead class=" text-primary">
+                                  <th>
+                                      Titre
+                                  </th>
+                                  <th>
+                                      Date Début
+                                  </th>
+                                  <th>
+                                      Date Fin
+                                  </th>
+                                  <th>
+                                      Description
+                                  </th>
+                                  <th>
+                                      Lieu
+                                  </th>
+                                  <th>
+                                    Action
+                                </th>
+                              </thead>
+                              <tbody >
+                                <!-- <tr *ngFor="let evenement of evenements  | evenementFilter:serachTerm "> -->
+                                 <tr  *ngFor = "let evenement of evenements  | paginate: {itemsPerPage:2 , currentPage:p }">       
+                                  <td>{{evenement.titre}}</td>
+                                  <td>{{evenement.datedebut | date: 'dd/MM/yyyy' }}</td>
+                                  <td>{{evenement.datefin | date: 'dd/MM/yyyy'}}</td>
+                                  <td>{{evenement.description}}</td>
+                                  <td>{{evenement.lieu}}</td>
+                                  <td><button (click)="deleteEvenement(evenement.idevenement)" class="btn btn-danger">Delete</button>
+                                    <button (click)="updateEvenement(evenement.idevenement)" class="btn btn-info" style="margin-left: 10px">Update</button>
+                                    <!-- <button (click)="employeeDetails(employee.id)" class="btn btn-info" style="margin-left: 10px">Details</button> -->
+                                    
+                                  </td>
+                                </tr>
+                              </tbody>
+                              <pagination-controls (pageChange)="p =$event"></pagination-controls>
+                          </table>
+                          <button type="submit" (click)="openPDF()" class="btn btn-success">Export this table to PDF </button>              
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</div>

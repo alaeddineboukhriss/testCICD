@@ -1,0 +1,48 @@
+<div id="htmlData">
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title ">Evenement</h4>
+                  </div>
+                  <div class="card-body">
+                      <div class="table-responsive">
+                         
+                         
+      
+<div class="col-sm-12 col-lg-6" class="container-fluid mb-3"  style="width: 65rem; height: 15cm ">
+    <div class="row">
+  <div class="col-4" *ngFor="let evenement of evenements" >
+  
+    <div class="card h-100"  >
+  
+      <img src = "{{'http://localhost:8081/SpringMVC/evenement/ImgEvents/'+evenement.idevenement}}" class="card-img-top"   alt="...">
+
+      <div class="card-body">
+        <h5 class="card-title" > Titre: {{evenement.titre}} </h5>
+        <p class="card-text"> Date Debut:  {{evenement.datedebut | date: 'dd/MM/yyyy' }} </p>
+        <p class="card-text"> Date Fin:  {{evenement.datefin | date: 'dd/MM/yyyy'}} </p>
+        <p class="card-text"> Description: {{evenement.description}} </p>
+        <p class="card-text"> Lieu: {{evenement.lieu}} </p>
+        <div class="card-footer text-center">
+        <!--<button class="btn btn-success mr-4 " [routerLink]="['/updateArticle',article.id]" >
+          Modifier
+        </button>-->
+        <button (click)="participe(evenement.idevenement)" class="btn btn-danger" [disabled]="evenement.participate" >Participe</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+<button type="submit" (click)="openPDF()" class="btn btn-success">Export this table to PDF </button> 
+</div>
+</div>
+</div>
+</div>
+</div>
+  </div>
+</div>

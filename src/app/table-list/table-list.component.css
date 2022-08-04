@@ -1,0 +1,11 @@
+.card-img-top {
+    flex-grow: 1;
+    object-fit:contain;
+}
+.card-body{
+    flex-grow:0;
+}
+.card-image{
+    height: 300px; 
+    width:auto; 
+ }
