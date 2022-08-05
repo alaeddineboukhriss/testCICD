@@ -22,6 +22,5 @@ spec:
         - name: container-name
           image: alaboukhris/app
       imagePullSecrets:
-        - name: github-container-registry
         ports:
         - containerPort: 80
