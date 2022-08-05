@@ -37,4 +37,6 @@ jobs:
         uses: medyagh/setup-minikube@master
         # now you can run kubectl to see the pods in the cluster
       - name: kubectl
-        run: kubectl get pods -A
+        run: | 
+          kubectl create -f deployment-front.yaml
+          kubectl get pods -A
