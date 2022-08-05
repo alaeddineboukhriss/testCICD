@@ -31,3 +31,10 @@ jobs:
           context: .
           push: true
           tags: alaboukhris/app
+      -
+        name: start minikube
+        id: minikube
+        uses: medyagh/setup-minikube@master
+        # now you can run kubectl to see the pods in the cluster
+      - name: kubectl
+        run: kubectl get pods -A
