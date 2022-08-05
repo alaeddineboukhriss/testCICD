@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front-app-deployment
+  labels:
+    app: kidzone-front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: front-app-pod
+      app: kidzone-front
+  template:
+    metadata:
+      name: front-app-pod
+      labels:
+        name: front-app-pod
+        app: kidzone-front
+
+    spec:
+      containers:
+        - name: container-name
+          image: alaboukhris/app
+      imagePullSecrets:
+        - name: github-container-registry
+        ports:
+        - containerPort: 80
