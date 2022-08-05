@@ -21,6 +21,5 @@ spec:
       containers:
         - name: container-name
           image: alaboukhris/app
-      imagePullSecrets:
         ports:
         - containerPort: 80
