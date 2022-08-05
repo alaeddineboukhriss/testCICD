@@ -19,7 +19,7 @@ spec:
 
     spec:
       containers:
-        - name: container-name
-        - image: alaboukhris/app
+      - image: alaboukhris/app
+        name: front
         ports:
         - containerPort: 80
